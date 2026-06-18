@@ -25,9 +25,10 @@ headers = {
   'content-type': "application/json;charset=UTF-8",
 }
 
-for i in range(1500):
+for i in range(5000):
     response = requests.post(url, data=json.dumps(payload), headers=headers)
-
-    print(response.text)
-    print(response.status_code)
-    print(i)
+    
+    if response.status_code == 200:
+        print("\n response başarılı cevap", response.text)
+        print("response başarılı kod", response.status_code)
+        print("deneme sayısı", i)
